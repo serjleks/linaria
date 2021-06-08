@@ -146,6 +146,15 @@ export default function GenerateClassNames(
     className = toValidCSSIdentifier(cnSlug);
   }
 
+  if (typeof options.className === 'function') {
+    try {
+      className = options
+        .className(state.file.opts.filename, displayName);
+    } catch {
+      throw new Error(`className option must return a string`);
+    }
+  }
+
   debug(
     'template-parse:generated-meta',
     `slug: ${slug}, displayName: ${displayName}, className: ${className}`

@@ -127,6 +127,7 @@ export type StrictOptions = {
   evaluate: boolean;
   ignore?: RegExp;
   babelOptions: TransformOptions;
+  className?: (filePath: string, localName: string) => string;
   rules: EvalRule[];
 };
 
