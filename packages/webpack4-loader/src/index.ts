@@ -39,6 +39,7 @@ export default function webpack4Loader(
     cacheDirectory = '.linaria-cache',
     preprocessor = undefined,
     extension = '.linaria.css',
+    forcedBeautifier = false,
     ...rest
   } = loaderUtils.getOptions(this) || {};
 
@@ -91,6 +92,7 @@ export default function webpack4Loader(
       outputFilename,
       pluginOptions: rest,
       preprocessor,
+      forcedBeautifier
     });
   } finally {
     // Restore original behaviour

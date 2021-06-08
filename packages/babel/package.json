@@ -50,7 +50,9 @@
     "@babel/template": ">=7",
     "@linaria/core": "^3.0.0-beta.4",
     "@linaria/logger": "^3.0.0-beta.3",
+    "@types/js-beautify": "1.13.1",
     "cosmiconfig": "^5.1.0",
+    "js-beautify": "1.13.13",
     "source-map": "^0.6.1",
     "stylis": "^3.5.4"
   },

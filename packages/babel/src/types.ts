@@ -163,6 +163,7 @@ export type Options = {
   outputFilename?: string;
   inputSourceMap?: RawSourceMap;
   pluginOptions?: Partial<PluginOptions>;
+  forcedBeautifier?: boolean;
 };
 
 export type PreprocessorFn = (selector: string, cssText: string) => string;

@@ -16,6 +16,8 @@ import { debug } from '@linaria/logger';
 import loadOptions from './utils/loadOptions';
 import type { LinariaMetadata, Options, PreprocessorFn, Result } from './types';
 
+import jsBeautify from 'js-beautify';
+
 const STYLIS_DECLARATION = 1;
 const posixSep = path.posix.sep;
 const babelPreset = require.resolve('./index');
@@ -122,6 +124,13 @@ export function extractCssFromAst(
     // Run each rule through stylis to support nesting
     cssText += `${preprocessor(selector, rules[selector].cssText)}\n`;
   });
+
+  // Forced beautifier
+  if(options.forcedBeautifier) {
+    cssText = jsBeautify.css(cssText, {
+      "indent_size": 2
+    });
+  }
 
   return {
     code: transformedCode || '',
